@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Raman! ⚡ Hype Level MAX</title>
+  
+  <!-- Favicon (Lightning Emoji) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  
+  <!-- Meta tags for SEO & responsive presentation -->
+  <meta name="description" content="Happy Birthday Raman! An interactive, anime-inspired celebration site packed with speed lines, power meters, level ups, and ramen vibes!">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Floating Audio HUD: Styled like a digital power cell -->
+  <div class="audio-hud muted" id="audioHUD" title="Audio Systems Panel">
+    <div class="hud-font" style="font-size: 0.7rem; font-weight: 800; color: var(--text-secondary);">AUDIO CELL</div>
+    <div class="hud-battery" id="hudBattery">
+      <div class="hud-battery-charge" id="hudBatteryCharge"></div>
+    </div>
+    <button class="hud-button" id="audioToggleBtn" aria-label="Toggle Background Music">
+      🔇
+    </button>
+  </div>
+
+  <!-- Background Canvas for speed lines and particles when charging -->
+  <canvas id="speedLinesCanvas"></canvas>
+
+  <!-- App Wrapper: Receives screen-shake classes when charging -->
+  <div id="appWrapper" class="shake-container">
+    
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero" id="heroSection">
+      <div class="hero-bg-accent"></div>
+      
+      <!-- Anime Title Card -->
+      <div class="title-card">
+        <h1 class="hero-main-title">HAPPY BIRTHDAY<br><span style="color: var(--blue);">RAMAN!</span> 🎉</h1>
+        <p class="hero-sub-title anime-font">Abe saale, tu firse ek saal budha ho gaya! ⚡</p>
+      </div>
+
+      <!-- Manga Panel Scroll Arrow -->
+      <a href="#countdownSection" class="manga-scroll-prompt" aria-label="Scroll to next panel">
+        <div class="arrow-panel anime-font">
+          <span>NEXT PANEL ❯❯</span>
+        </div>
+        <div class="arrow-icon">▼</div>
+      </a>
+    </section>
+
+    <div class="container">
+      
+      <!-- ================= COUNTDOWN / POWER HUD SECTION ================= -->
+      <section id="countdownSection" class="countdown-section">
+        <div class="hud-panel">
+          <div class="hud-aura"></div>
+          
+          <!-- Standard Countdown Mode (Active before July 11) -->
+          <div id="countdownMode">
+            <div class="hud-header">
+              <div class="hud-title hud-font">
+                <span>⚡ RAMAN KI BRAIN CELL CHARGE HO RAHI HAI... (Battery Low)</span>
+              </div>
+              <div class="hud-grid-deco">
+                <div class="hud-grid-dot"></div>
+                <div class="hud-grid-dot"></div>
+                <div class="hud-grid-dot"></div>
+              </div>
+            </div>
+
+            <!-- Digital Timer Grid -->
+            <div class="countdown-grid hud-font">
+              <div class="countdown-box">
+                <div class="countdown-val" id="daysVal">00</div>
+                <div class="countdown-label">Days</div>
+              </div>
+              <div class="countdown-box">
+                <div class="countdown-val" id="hoursVal">00</div>
+                <div class="countdown-label">Hours</div>
+              </div>
+              <div class="countdown-box">
+                <div class="countdown-val" id="minutesVal">00</div>
+                <div class="countdown-label">Mins</div>
+              </div>
+              <div class="countdown-box">
+                <div class="countdown-val" id="secondsVal">00</div>
+                <div class="countdown-label">Secs</div>
+              </div>
+            </div>
+
+            <!-- Charging Bar -->
+            <div class="power-meter-container">
+              <div class="power-meter-label-row hud-font">
+                <span>SYSTEM: BIRTHDAY_BOMB_RELEASE_JULY_11</span>
+                <span id="powerMeterPercent">0%</span>
+              </div>
+              <div class="power-meter-bar-outer">
+                <div class="power-meter-bar-inner" id="powerMeterBar"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Celebration Mode (Unlocks on July 11 or via testing preview) -->
+          <div id="celebrationMode" class="hud-celebrate-card">
+            <div class="celebration-glow-ring">
+              <div class="celebration-glow-ring-inner">🍜</div>
+            </div>
+            <h2 class="hud-celebrate-header">MAX HYPE UNLOCKED! 💥</h2>
+            <p class="celebration-msg-hud">
+              July 11 protocol successful! Raman ka level up ho gaya hai, par dimaag abhi bhi 2 saal ke bachhe jaisa hai. 
+              Neeche scroll karo and inspect his tragic new stats!
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= MANGA PANEL GALLERY ================= -->
+      <section id="gallerySection" class="gallery-section">
+        <div class="gallery-section-header">
+          <div class="gallery-badge anime-font"><span>FILE: MEMORY_BANK</span></div>
+          <h2 class="gallery-section-title">THE ADVENTURE PANELS</h2>
+        </div>
+
+        <!-- Asymmetrical Manga Layout Grid -->
+        <div class="manga-grid">
+          
+          <!-- PANEL 1 (Large) -->
+          <div class="manga-panel panel-large">
+            <!-- Washi tape decoration -->
+            <div class="washi-tape"></div>
+            <!-- Sticker decoration -->
+            <span class="sticker sticker-star">✨</span>
+            <div class="panel-img-container">
+              <!-- Captions & images are easy to edit! Simply swap the src attributes. -->
+              <img src="assets/images/duo_battle.png" alt="Raman action shot" class="panel-img">
+              <div class="screentone-overlay"></div>
+            </div>
+            <div class="panel-banner">
+              <span class="panel-action-word">OH BHAI!</span>
+              <h3 class="panel-title">Wo Wala Kachra Trip 🎒</h3>
+              <p class="panel-desc">Tune bola tha 'Shortcut pata hai', aur hum 3 ghante tak galiyon me ghumte rahe. Legend navigator! 💀</p>
+            </div>
+          </div>
+
+          <!-- PANEL 2 (Top Right) -->
+          <div class="manga-panel panel-side-1">
+            <span class="sticker sticker-sparkle">⭐</span>
+            <div class="panel-img-container">
+              <img src="assets/images/duo_gaming.png" alt="Raman playing games" class="panel-img">
+              <div class="screentone-overlay"></div>
+            </div>
+            <div class="panel-banner">
+              <span class="panel-action-word">LAG GAYE!</span>
+              <h3 class="panel-title">Gaming Carry Of The Century 🎮</h3>
+              <p class="panel-desc">Maine pure match me carry kiya aur tu pehle hi second me dead ho ke spectator screen se faltu ka gyaan de raha tha! 🤡</p>
+            </div>
+          </div>
+
+          <!-- PANEL 3 (Bottom Right) -->
+          <div class="manga-panel panel-side-2">
+            <div class="washi-tape washi-tape-magenta"></div>
+            <div class="panel-img-container">
+              <img src="assets/images/duo_ramen.png" alt="Raman eating ramen" class="panel-img">
+              <div class="screentone-overlay"></div>
+            </div>
+            <div class="panel-banner">
+              <span class="panel-action-word">PET KHARAB!</span>
+              <h3 class="panel-title">Ramen Overdose Challenge 🍜</h3>
+              <p class="panel-desc">Tujhe laga tu 3 extra-spicy bowls akele khatam karega, par aakhi me rone laga. Last me bill aur hum dono ka pet dono maine bhara! 💸</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= CHARACTER CARD / LETTER SECTION ================= -->
+      <section id="messageSection" class="message-section">
+        <div class="char-intro-card">
+          
+          <!-- Left: Stat Card -->
+          <div class="char-portrait-container">
+            <div class="char-portrait-box" id="charPortraitBox" style="cursor: pointer; position: relative;" title="Click to trigger Super Saiyan Mode! ⚡">
+              <img src="assets/images/duo_portrait.jpg" alt="Raman and Me" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(10%) contrast(110%);">
+              <div class="screentone-overlay"></div>
+              <div id="saiyanBadge" style="position: absolute; top: 10px; left: 10px; background: var(--gold); color: #000; border: var(--border-thin); font-family: 'Orbitron', sans-serif; font-size: 0.6rem; font-weight: 900; padding: 2px 5px; display: none; box-shadow: 2px 2px 0px #000; z-index: 5;">SAIYAN MODE ACTIVE</div>
+            </div>
+            <div class="char-stat-box hud-font">
+              <h3 class="char-stat-title">STATS: RAMAN (Budhapa Edition)</h3>
+              <div class="stat-row"><span>CLASS:</span><span class="stat-val" id="statClass">PRO_NOOB / WEEB</span></div>
+              <div class="stat-row"><span>HYPE SCALE:</span><span class="stat-val" id="statHype">9999+ (IQ: 0.1)</span></div>
+              <div class="stat-row"><span>RAMEN INTAKE:</span><span class="stat-val" id="statRamen">SSS RANK (Bills paid: 0)</span></div>
+              <div class="stat-row"><span>LOYALTY COEFF:</span><span class="stat-val" id="statLoyalty">100/100 (Except during gaming)</span></div>
+              
+              <!-- Noodle Clicker Game -->
+              <div style="margin-top: 15px; border-top: 1px dashed rgba(255,255,255,0.2); padding-top: 10px; text-align: center;">
+                <button id="feedRamenBtn" class="dev-preview-btn" style="width: 100%; font-size: 0.8rem; padding: 6px; font-weight: bold; border-color: var(--gold); color: var(--gold);" type="button">
+                  🍜 Feed Raman Ramen!
+                </button>
+                <div id="ramenCountText" style="font-size: 0.75rem; margin-top: 5px; color: var(--text-secondary);">
+                  Bowls eaten: <span id="ramenCountVal" style="color: #fff; font-weight: bold;">0</span>
+                </div>
+                <div id="ramenFeedbackText" style="font-size: 0.7rem; font-style: italic; min-height: 16px; color: var(--blue); margin-top: 3px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Birthday Letter in Manga Speech Bubble -->
+          <div class="speech-bubble-wrapper">
+            <div class="speech-bubble">
+              <h3 class="bubble-heading">Yo Raman, mere bhai! ⚡</h3>
+              <div class="bubble-text">
+                <p style="margin-bottom: 12px;">
+                  Happy Birthday saale! 🎉 Socha tha is saal thoda mature ho jayega, par teri bekaar anime recommendations aur gaming decisions dekh ke lagta nahi hai ki aisa hone wala hai. 😂
+                </p>
+                <p style="margin-bottom: 12px;">
+                  Jokes aside, tu sach me ek number ka kamina aur dependable best friend hai. Agar tu gaming me feed karna band kar de na, toh shayad hum sach me next rank pe pahuch jayein! Thanks for always being there, whether it's for 2 AM deep talk sessions, stupid anime arguments, or eating endless spicy ramen.
+                </p>
+                <p>
+                  Tera birthday hai toh aaj main tujhe thoda bhaav de raha hu, par yaad rakhna—agla ramen bowl pakka tere hi kharche pe chalega! 🍜 🤜🤛
+                </p>
+              </div>
+              <div class="bubble-signature">
+                - Your carry partner (Jo tujhe clutched win dilata hai) 🤜🤛
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= INTERACTIVE POWER-UP SECTION ================= -->
+      <section id="powerSection" class="power-section">
+        <div class="power-card">
+          <div class="power-level-hud hud-font">
+            <span>RAMAN'S BUDHAPA LEVEL:</span>
+            <span class="power-level-num" id="currentLevel">LV. 24</span>
+          </div>
+
+          <!-- Glowing Charging Aura -->
+          <div class="charge-aura" id="chargeAura"></div>
+          
+          <!-- Charging Button -->
+          <button class="charge-btn" id="chargeBtn" type="button">
+            ⚡ POWER UP! ⚡
+          </button>
+          
+          <p class="power-instruction hud-font">
+            HOLD DOWN or TAP REPEATEDLY to force Raman's dimaag to level up! 🧠
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <div class="footer-content">
+        <p class="footer-text hud-font">Made with 💥 by your best friend</p>
+        <span class="footer-doodle" role="img" aria-label="Duo high five">🤜💥🤛</span>
+        
+        <!-- Dev Preview Toggle: Easy testing switch for user -->
+        <div class="dev-preview-hud hud-font">
+          <span>DEV PREVIEW:</span>
+          <button class="dev-preview-btn" id="devToggleCountdown">Force Countdown Mode</button>
+          <button class="dev-preview-btn" id="devToggleCelebrate">Force Celebration Mode</button>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ================= LEVEL UP MODAL ================= -->
+  <div class="level-up-modal" id="levelUpModal">
+    <div class="level-card">
+      <div class="level-card-flash" id="modalFlash"></div>
+      <h2 class="level-title-large">LEVEL UP! 🎉</h2>
+      <div class="level-age-reveal hud-font" id="levelAgeText">RAMAN LEVELED UP TO AGE 25! (Still zero IQ)</div>
+      
+      <div class="level-up-stats hud-font">
+        <div class="level-stat-row">
+          <span class="stat-label-icon">🎮 Gaming Skills (Spectator rank)</span>
+          <span class="stat-gain">-10 PTS</span>
+        </div>
+        <div class="level-stat-row">
+          <span class="stat-label-icon">🍜 Ramen Digestion Capacity</span>
+          <span class="stat-gain">+99%</span>
+        </div>
+        <div class="level-stat-row">
+          <span class="stat-label-icon">📺 Anime Watchlist Backlog</span>
+          <span class="stat-gain">+500 Shows</span>
+        </div>
+        <div class="level-stat-row">
+          <span class="stat-label-icon">😈 Kamina-pan aura intensity</span>
+          <span class="stat-gain">OVER 9000%</span>
+        </div>
+      </div>
+
+      <button class="modal-close-btn" id="modalCloseBtn">
+        DISMISS PROTOCOL
+      </button>
+    </div>
+  </div>
+
+  <!-- Audio elements -->
+  <!-- Users can place their background music in assets/sounds/background_op.mp3.
+       We also configure a royalty-free fallback in app.js in case they don't have a local file yet! -->
+  <audio id="bgMusic" loop src="assets/sounds/background_op.mp3"></audio>
+
+  <!-- JavaScript logic -->
+  <script src="app.js"></script>
+</body>
+</html>
