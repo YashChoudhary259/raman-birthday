@@ -1,17 +1,9 @@
-/* 
-  RAMAN'S HYPE ANIME BIRTHDAY WEB CODE
-  Features: 
-  - Dynamic Countdown & Celebration State Management
-  - Web Audio API synthesizer (no external audio files required for action sounds!)
-  - Canvas speed lines rendering (action speed increases as you power up)
-  - Interactive Power-Up meter, screen shake, and level-up system
-  - Canvas confetti particle engine
-*/
+
 
 // --- USER CONFIGURABLE VALUES ---
 const TARGET_MONTH = 6; // 0-indexed (July is index 6)
 const TARGET_DAY = 11;  // July 11
-const BIRTH_YEAR = 2001; // Used to calculate Raman's age. Leveling up will show (CurrentYear - BirthYear)
+const BIRTH_YEAR = 2008; // Used to calculate Raman's age. Leveling up will show (CurrentYear - BirthYear)
 
 // Fallback music stream if local background_op.mp3 fails to load or is missing
 const BACKUP_MUSIC_URL = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3";
@@ -65,7 +57,7 @@ const devToggleCountdown = document.getElementById('devToggleCountdown');
 const devToggleCelebrate = document.getElementById('devToggleCelebrate');
 
 
-// ================= AUDIO SYNTHESIZER ENGINE =================
+
 // Synthesizes retro-arcade and sci-fi action sounds programmatically
 function initAudioContext() {
   if (audioCtx) return;
@@ -263,7 +255,6 @@ function stopChargeHum() {
 }
 
 
-// ================= BACKGROUND MUSIC CONTROLLER =================
 function toggleMusic() {
   isMuted = !isMuted;
   
@@ -308,7 +299,6 @@ bgMusic.addEventListener('error', function() {
 });
 
 
-// ================= DYNAMIC DATE & COUNTDOWN MODULE =================
 // Configures target dates and calculates values
 function setupTargetDates() {
   const now = new Date();
@@ -397,7 +387,6 @@ function showCountdownMode() {
 }
 
 
-// ================= ANIMATION CANVAS (SPEED LINES) =================
 const ctx = speedLinesCanvas.getContext('2d');
 let linesArray = [];
 
@@ -683,7 +672,6 @@ function drawConfettiLoop() {
 }
 
 
-// ================= EVENT LISTENERS =================
 
 // Audio systems
 audioToggleBtn.addEventListener('click', toggleMusic);
@@ -853,7 +841,6 @@ function feedRamen() {
   }
 }
 
-// ================= INITIALIZATION =================
 window.addEventListener('DOMContentLoaded', () => {
   setupTargetDates();
   runDateCheck();
